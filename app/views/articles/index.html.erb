@@ -17,7 +17,11 @@
             <tr>
                 <td><%= link_to a.title, article_path(a) %></td>
                 <td><%= link_to 'Edit', edit_article_path(a) %></td>
-                <td></td>
+                <td>
+                    <%= link_to 'Destroy',  article_path(a),
+                                            method: :delete,
+                                            data: { confirm: 'Are you sure?' } %>
+                </td>
             </tr>
         <% end %>
     </tbody>
