@@ -1,8 +1,24 @@
 
 <h1>Articles</h1>
+<div>
+    <%= link_to "New article", new_article_path %>
+</div>
+<br/>
 
-<ul>
-    <% @articles.each do |a| %>
-        <li><%= a.title %> </li>
-    <% end %>
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Tytul</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @articles.each do |a| %>
+            <tr>
+                <td><%= link_to a.title, article_path(a) %></td>
+                <td><%= link_to 'Edit', edit_article_path(a) %></td>
+                <td></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
