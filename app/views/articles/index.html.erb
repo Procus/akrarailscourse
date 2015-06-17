@@ -1,7 +1,9 @@
 
 <h1>Articles</h1>
 <div>
+  <% if can? :menage, Article %>
     <%= link_to "New article", new_article_path %>
+  <% end %>
 </div>
 <br/>
 
@@ -16,12 +18,14 @@
         <% @articles.each do |a| %>
             <tr>
                 <td><%= link_to a.title, article_path(a) %></td>
-                <td><%= link_to 'Edit', edit_article_path(a) %></td>
-                <td>
-                    <%= link_to 'Destroy',  article_path(a),
-                                            method: :delete,
-                                            data: { confirm: 'Are you sure?' } %>
-                </td>
+                <% if can? :menage, a %>
+                  <td><%= link_to 'Edit', edit_article_path(a) %></td>
+                  <td>
+                      <%= link_to 'Destroy',  article_path(a),
+                                              method: :delete,
+                                              data: { confirm: 'Are you sure?' } %>
+                  </td>
+                <% end %>
             </tr>
         <% end %>
     </tbody>
