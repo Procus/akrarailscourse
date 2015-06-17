@@ -69,9 +69,7 @@
               Jestes zalogowany jako: &nbsp;
             </p>
           <% else %>                                                                                                                          
-            <%= link_to new_user_session_path do %>
-              <button type="button" class="btn btn-success navbar-btn navbar-right">Sign in</button>
-            <% end %>
+            <%= link_to "Zaloguj", new_user_session_path, class: "btn btn-success navbar-btn navbar-right" %>
           <% end %>
           
         </div>
